@@ -4,7 +4,7 @@ This is the code of the paper "Learning Underwater Image Enhancement Iteratively
 
 usage steps:
 
-    1. Putting your data into the dataset folder. Ours is [here](https://drive.google.com/drive/folders/1p3rXIh24TtQCHUufesfJNVsT8RIDyoHI?usp=drive_link).
+    1. Putting your data into the dataset folder. Our dataset [Google Drive](https://drive.google.com/drive/folders/1p3rXIh24TtQCHUufesfJNVsT8RIDyoHI?usp=sharing).
     
     2. Download the pre-trained model, the link is also in this above url. Then, put the model in the pre-train folder.
     
