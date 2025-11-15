@@ -4,9 +4,9 @@ This is the code of the paper "Learning Underwater Image Enhancement Iteratively
 
 usage steps:
 
-    1. Putting your data into the dataset folder. (There is initial data in this folder now)(Ours is here:).
+    1. Putting your data into the dataset folder. (Ours is here: https://drive.google.com/drive/folders/1p3rXIh24TtQCHUufesfJNVsT8RIDyoHI?usp=drive_link).
     
-    2. Download the pre-trained model, the link is . Then, put the model in the pre-train folder.
+    2. Download the pre-trained model, the link is also in this above url. Then, put the model in the pre-train folder.
     
     3. Execute infer.py to get the inference results in a new folder called experiments_val folder.
     
