@@ -14,7 +14,7 @@ Users can also change the code in the config/underwater.json to change for the d
 
 label_clip.py is used to generate the label.txt, namely CLIP text, for text feature extraction.(This is simple way, manually labeling is the best)
 
-color_filter.py is used to filter the 'cold' color and retain the 'warm' color in the underwater images..
+color_filter.py is used to filter the 'cold' color and retain the 'warm' color in the underwater images.
 
 nethook.py is a package to modify the neural units, extracted from 'Gan dissection: Visualizing and understanding generative adversarial networks, ICLR, 2018'. Based on this package, visualize.py is used to find out which unit controls the 'red color'.
 
