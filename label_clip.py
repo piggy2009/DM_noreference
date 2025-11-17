@@ -58,45 +58,6 @@ def compute_semantic_dis(image, txt):
         # print('distance between image and ', txt, ' =', dis)
         return dis.data.cpu().numpy()
 
-def test_clip_loss():
-    path = 'dataset/water_train_16_128/sr_16_128/00151.png'
-    path2 = 'dataset/water_train_16_128/hr_128/00151.png'
-    src = preprocess(Image.open(path)).unsqueeze(0).to(device)
-    target = preprocess(Image.open(path2)).unsqueeze(0).to(device)
-    src_txt = 'diving in underwater scenes'
-    target_txt = 'diving without underwater'
-
-    text = clip.tokenize(src_txt).to(device)
-    text2 = clip.tokenize(target_txt).to(device)
-
-    src_image_features = model.encode_image(src)
-    target_image_features = model.encode_image(target)
-    src_text_features = model.encode_text(text)
-    target_text_features = model.encode_text(text2)
-
-    print(src_text_features.shape, '--', src_image_features.shape)
-
-    src_image_features /= src_image_features.norm(dim=-1, keepdim=True)
-    target_image_features /= target_image_features.norm(dim=-1, keepdim=True)
-    src_text_features /= src_text_features.norm(dim=-1, keepdim=True)
-    target_text_features /= target_text_features.norm(dim=-1, keepdim=True)
-
-    src_fuse_features = torch.cat([src_image_features, src_text_features], dim=-1)
-    target_fuse_features = torch.cat([target_image_features, target_text_features], dim=-1)
-
-    direction = target_image_features - src_image_features
-    direction /= direction.norm(dim=-1, keepdim=True)
-
-    text_direction = target_text_features - src_text_features
-    text_direction /= text_direction.norm(dim=-1, keepdim=True)
-
-    value = torch.nn.CosineSimilarity()(direction, text_direction)
-    value2 = torch.nn.CosineSimilarity()(src_fuse_features, target_fuse_features)
-
-    print('cosine distance:', value)
-    print('cosine distance2:', value2)
-    # print(1 - value)
-
 if __name__ == '__main__':
     # test_clip_loss()
     path = 'dataset/water_val_16_128/sr_16_256'
